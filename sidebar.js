@@ -1,12 +1,20 @@
 function extract_comments(arg) {
 // input  : HTMLCollction
 //          <table width="770" cellspacing="5"><tbody> ... </tbody></table>
+  var re = new RegExp('^\.\/', '');
 
-  console.log(arg);
+  console.log(arg); // debug
   var base_table   = arg.querySelector("table").querySelector("tbody");
   var base_tr_list = base_table.querySelectorAll("tr");
   for (var i = 1 ; i < base_tr_list.length ; i++) {
     if (base_tr_list.item(i-1).innerText.match("^◆ 出来事")) {
+      var base_img_list = base_tr_list.item(i).querySelector("table").querySelectorAll("img");
+      for (var j = 0 ; j < base_img_list.length ; j++) {
+        var img = base_img_list.item(j);
+        img.setAttribute("src",
+                         img.getAttribute("src").replace(re, "http://jinrou.dip.jp/~jinrou/"));
+      }
+
       return base_tr_list.item(i).querySelector("table").outerHTML;
     }
   }

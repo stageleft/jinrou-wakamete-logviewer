@@ -14,7 +14,7 @@ Japanese only, because Wakamete Server can support only Japanese.
 
 # How to Install （どうやってインストールするの？）
 
-1. 登録されている wakamete-log-viewer.xpi をダウンロードしてください。
+1. Release に登録されている wakamete-log-viewer.xpi をダウンロードしてください。
 1. https://developer.mozilla.org/ja/docs/Mozilla/Add-ons/WebExtensions/Packaging_and_installation の、
 「ディスクから読み込む」セクションに従ってインストールしてください。  
 インストール完了後は、 about:debugging のページを閉じてしまってかまいません。  

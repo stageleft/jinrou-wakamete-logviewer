@@ -8,7 +8,7 @@ function copy_comment_to_memo_space(arg) {
     }
 
     if ( o.childElementCount == 2 ) { // if <tr><td>charecter</td><td>comment</td></tr> style
-      v = v + "\n----------------\n" + o.innerText;
+      v = v + "\n" + o.innerText;
       document.getElementById("freememo").value = v;
     }
   }

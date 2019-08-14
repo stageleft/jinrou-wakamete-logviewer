@@ -16,7 +16,7 @@ function onLogLoad(event) {
   send_object.then(handleResponse, handleError);
 }
 
-setInterval(onLogLoad, 1000);
+setInterval(onLogLoad, 100);
 
 // NG case. EventListner方式
 //   function onLogLoad(event) {

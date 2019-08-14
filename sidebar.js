@@ -1,3 +1,5 @@
+var recvLog_lock = false;
+
 function copy_comment_to_memo_space(arg) {
   var v = document.getElementById("freememo").value;
 
@@ -48,11 +50,19 @@ function recvLog(request, sender, sendResponse) {
 //          see onLogLoad() in wakamete-plugins.js
 // output : JSON (fixed value)
 //          {response: "OK"}
+  if (recvLog_lock == false) {
+   recvLog_lock = true;
+  } else {
+    sendResponse({response: "OK"});
+    return;
+  };
+
   var parser = new DOMParser();
   var receivedLog = parser.parseFromString(request.html_log, "text/html");
 
   document.getElementById("information").innerHTML = extract_comments(receivedLog);
 
+  recvLog_lock = false;
   sendResponse({response: "OK"});
 };
 
